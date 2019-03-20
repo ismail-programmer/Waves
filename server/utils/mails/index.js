@@ -35,7 +35,7 @@ const sendEmail = (to, name, token, type, actiondata = null) => {
     service: 'Gmail',
     auth: {
       user: 'messagecenterwaves@gmail.com',
-      pass: process.env.EMAIL_PASS
+      pass: process.env.EMAIL_PASS ? process.env.EMAIL_PASS : '28june2000'
     }
   });
 
