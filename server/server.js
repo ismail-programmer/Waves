@@ -23,12 +23,13 @@ const app = express();
 
 //! mongoose configration
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DATABASE);
+mongoose.connect(process.env.MONGODB_URI);
 
-//!body parser configration
+//!using middle ware 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(express.static('client/build'))
 
 // ! require Models
 const { User } = require('./models/user');
@@ -37,6 +38,7 @@ const { Wood } = require('./models/wood');
 const { Product } = require('./models/product');
 const { Site } = require('./models/site');
 const { Payment } = require('./models/payment');
+
 
 //! require middle wares
 const { auth } = require('./middleWare/auth');
@@ -516,6 +518,20 @@ app.post('/api/site/site_data', auth, admin, (req, res) => {
     }
   );
 });
+
+
+
+
+
+// ! DEFAULT CASE
+
+if(process.env.NODE_ENV === 'production'){
+  const path = require('path');
+  app.get('/*',(req,res)=>{
+    res.sendFile(path.resolve(__dirname,"../client","build","index.html"))
+  })
+}
+
 
 //*****************************************
 // ! listening port
