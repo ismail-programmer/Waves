@@ -4,7 +4,7 @@ const resetPass = data => {
   const URL =
     process.env.NODE_ENV === 'production'
       ? process.env.ROOT_URL
-      : 'http://localhost:3000';
+      : 'https://limitless-dawn-57760.herokuapp.com';
   return `
     <!DOCTYPE html>
    <html style="margin: 0; padding: 0;">
