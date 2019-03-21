@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Oswald', sans-serif;
+  overflow-x: hidden;
   color: #404040;
 }
 
@@ -892,4 +893,35 @@ footer .business_nfo .nfo {
 .checkout-btn svg {
   font-size: 30px;
   margin-right: 8px;
+}
+
+.not_optimized  {
+  padding-top: 100px;
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  text-align: center;
+  font-size: 28px;
+  z-index: 999;
+}
+
+.not_optimized div {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.not_optimized svg {
+  margin: 0 auto;
+  font-size: 64px;
+  display: block;
+}
+
+@media only screen and (max-width: 767px) {
+  .not_optimized  {
+    display: block;
+  }
 }

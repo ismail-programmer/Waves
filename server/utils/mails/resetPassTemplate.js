@@ -4,7 +4,7 @@ const resetPass = data => {
   const URL =
     process.env.NODE_ENV === 'production'
       ? process.env.ROOT_URL
-      : 'https://limitless-dawn-57760.herokuapp.com';
+      : 'https://waves-guitars-2806.herokuapp.com';
   return `
     <!DOCTYPE html>
    <html style="margin: 0; padding: 0;">

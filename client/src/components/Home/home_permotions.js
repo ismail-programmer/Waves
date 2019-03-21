@@ -1,31 +1,30 @@
 import React from 'react';
 import MyButton from '../utils/button';
 
-const HomePermotion = (props) => {
-  const permotion = 
-    {
-      img: '/images/featured/featured_home_3.jpg',
-      lineOne: 'Up to 40% off',
-      lineTwo: 'In second hand guitars',
-      linkTitle: 'Shop now',
-      linkTo: '/shop'
-    }
-  
-  const renderPermotion = () =>
-    permotion ? (
+const HomePermotion = props => {
+  const promotion = {
+    img: '/images/featured/featured_home_3.jpg',
+    lineOne: 'Up to 40% off',
+    lineTwo: 'In second hand guitars',
+    linkTitle: 'Shop now',
+    linkTo: '/shop'
+  };
+
+  const renderPromotion = () =>
+    promotion ? (
       <div
         className='home_promotion_img'
         style={{
-          background: `url(${permotion.img})`
+          background: `url(${promotion.img})`
         }}
       >
-        <div className='tag title'>{permotion.lineOne}</div>
-        <div className='tag low_title'>{permotion.lineTwo}</div>
+        <div className='tag title'>{promotion.lineOne}</div>
+        <div className='tag low_title'>{promotion.lineTwo}</div>
         <div>
           <MyButton
             type='default'
-            title={permotion.linkTitle}
-            linkTo={permotion.linkTo}
+            title={promotion.linkTitle}
+            linkTo={promotion.linkTo}
             addStyles={{
               margin: '10px 0 0 0'
             }}
@@ -34,7 +33,7 @@ const HomePermotion = (props) => {
       </div>
     ) : null;
 
-  return <div className='home_promotion'>{renderPermotion()}</div>;
+  return <div className='home_promotion'>{renderPromotion()}</div>;
 };
 
 export default HomePermotion;

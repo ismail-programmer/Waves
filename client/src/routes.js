@@ -22,10 +22,12 @@ import UpdateProfile from './components/User/updateProfile';
 import ManageSite from './components/User/Admin/ManageSite';
 
 import PageNotFound from './components/utils/pageNotFound';
+import NotOptimized from './components/utils/notOptimized';
 
 const Routes = () => {
   return (
     <Layout>
+      <NotOptimized />
       <Switch>
         <Route path='/user/dashboard' exact component={Auth(UserDashboard, true)} />
         <Route path='/user/cart' exact component={Auth(UserCart, true)} />
