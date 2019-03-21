@@ -26,7 +26,7 @@ const HomePermotion = props => {
             title={promotion.linkTitle}
             linkTo={promotion.linkTo}
             addStyles={{
-              margin: '10px 0 0 0'
+              margin: '10px auto'
             }}
           />
         </div>

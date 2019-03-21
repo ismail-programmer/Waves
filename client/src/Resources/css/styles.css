@@ -186,7 +186,7 @@ select {
 .link_default {
   text-transform: uppercase;
   padding: 10px;
-  display: table;
+  display: inline-block;
   background: #e1ddc3;
   margin-top: 10px;
 }

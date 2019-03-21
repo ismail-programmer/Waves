@@ -10,7 +10,7 @@ const MyButton = props => {
     switch (props.type) {
       case 'default':
         template = (
-          <Link className={!props.altClass ? 'link_default' : props.altClass} to={props.linkTo} {...props.addStyles}>
+          <Link className={!props.altClass ? 'link_default' : props.altClass} to={props.linkTo} style={{...props.addStyles}}>
             {props.title}
           </Link>
         );
@@ -48,7 +48,7 @@ const MyButton = props => {
     return template;
   };
 
-  return <div className='My_link'>{button()}</div>;
+  return <div className='My_link' style={{textAlign: 'center'}}>{button()}</div>;
 };
 
 export default MyButton;

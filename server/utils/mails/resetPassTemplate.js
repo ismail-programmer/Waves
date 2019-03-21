@@ -2,9 +2,9 @@ require('dotenv').config();
 
 const resetPass = data => {
   const URL =
-    process.env.NODE_ENV === 'production'
-      ? process.env.ROOT_URL
-      : 'https://waves-guitars-2806.herokuapp.com';
+    process.env.NODE_ENV === 'production' ?
+       'https://waves-guitars-2806.herokuapp.com' :
+       'https://localhost:3000';
   return `
     <!DOCTYPE html>
    <html style="margin: 0; padding: 0;">
