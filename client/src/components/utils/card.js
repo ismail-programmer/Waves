@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import MyButton from './button';
 
+import { Tooltip } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { addToCart } from '../../actions/user_actions';
 
 class Card extends Component {
+  state = {
+    btnClass: ''
+  };
+
   renderCardImage(images) {
     if (images.length > 0) {
       return images[0].url;
@@ -12,6 +17,22 @@ class Card extends Component {
       return '/images/image_not_availble.png';
     }
   }
+
+  componentDidMount() {
+    if (this.props.user)
+      if (!this.props.user.userData.isAuth)
+        this.setState({ btnClass: 'disabled' });
+      else this.setState({ btnClass: '' });
+  }
+
+  tooltipTitleHandler = user => {
+    if (user)
+      if (!user.isAuth) {
+        return 'Please Login First';
+      }
+
+    return '';
+  };
 
   render() {
     const props = this.props;
@@ -46,16 +67,22 @@ class Card extends Component {
                 }}
               />
             </div>
-            <div className='button_wrapp'>
-              <MyButton
-                type='bag_link'
-                runAction={() => {
-                  props.user.userData.isAuth
-                    ? this.props.dispatch(addToCart(props._id))
-                    : console.log('you need login');
-                }}
-              />
-            </div>
+            <Tooltip
+              title={this.tooltipTitleHandler(props.user.userData)}
+              placement='top'
+            >
+              <div className={`button_wrapp ${this.state.btnClass}`}>
+                <MyButton
+                  type='bag_link'
+                  addStyles={{marginTop: '10px'}}
+                  runAction={() => {
+                    props.user.userData.isAuth
+                      ? this.props.dispatch(addToCart(props._id))
+                      : console.log('you need login');
+                  }}
+                />
+              </div>
+            </Tooltip>
           </div>
         </div>
       </div>

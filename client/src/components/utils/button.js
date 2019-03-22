@@ -19,6 +19,7 @@ const MyButton = props => {
         template = (
           <div
             className='bag_link'
+            style={{...props.addStyles}}
             onClick={() => {
               props.runAction();
             }}

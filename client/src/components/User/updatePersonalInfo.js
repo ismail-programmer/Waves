@@ -61,7 +61,6 @@ class UpdatePersonalInfo extends Component {
 
   componentDidMount() {
     const newFormData = populateFields(this.state.formdata, this.props.user.userData);
-    console.log(this.props.user.userData);
 
     this.setState({
       formdata: newFormData

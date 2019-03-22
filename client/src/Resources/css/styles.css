@@ -207,12 +207,20 @@ select {
   transition: all 200ms ease-in;
   cursor: pointer;
 }
+
 .card_link:hover,
 .bag_link:hover,
 .add_to_cart_link:hover {
   background: #aaaaaa;
   color: #ffff;
 }
+
+.disabled .bag_link,
+.disabled .add_to_cart_link {
+  color: #888;
+  background: #c3c0b1;
+} 
+
 .add_to_cart_link {
   color: #6b6b6b;
   background: #d9d9d9;

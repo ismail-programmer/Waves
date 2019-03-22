@@ -1,10 +1,24 @@
 import React from 'react';
 import MyButton from '../utils/button';
 
+import { Tooltip } from '@material-ui/core';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faTruck, faCheck, faTimes } from '@fortawesome/fontawesome-free-solid';
 
 const ProInfo = props => {
+  let btnClass = '';
+  if (!props.user.isAuth) btnClass = 'disabled';
+  else btnClass = '';
+
+  const tooltipTitleHandler = user => {
+    if (user)
+      if (!user.isAuth) {
+        return 'Please Login First';
+      }
+
+    return '';
+  };
+
   const showProdSpecifications = detail => (
     <div className='product_specifications'>
       <h2>Specifications:</h2>
@@ -24,14 +38,16 @@ const ProInfo = props => {
   const showProdActions = () => (
     <div className='product_actions'>
       <div className='price'>${detail.price}</div>
-      <div className='cart'>
-        <MyButton
-          type='add_to_cart_link'
-          runAction={() => {
-            props.addToCart(detail._id);
-          }}
-        />
-      </div>
+      <Tooltip title={tooltipTitleHandler(props.user)} placement='bottom'>
+        <div className={`cart ${btnClass}`}>
+          <MyButton
+            type='add_to_cart_link'
+            runAction={() => {
+              props.addToCart(detail._id);
+            }}
+          />
+        </div>
+      </Tooltip>
     </div>
   );
 

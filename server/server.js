@@ -122,7 +122,7 @@ app.post('/api/users/uploadimage', auth, admin, formidable(), (req, res) => {
     result => {
       res.status(200).send({
         public_id: result.public_id,
-        url: result.url
+        url: result.secure_url
       });
     },
     {
